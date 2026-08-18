@@ -1,0 +1,120 @@
+================================================================================
+MASTER PROMPT – Mari-Fariyaad (Spring Boot Compatible Frontend)
+================================================================================
+
+Spring Initializr Configuration
+--------------------------------------------------------------------------------
+Project         : Maven
+Maven Version   : Apache Maven 3.9.16
+Language        : Java
+Java Version    : 17
+Spring Boot     : 3.x (Latest Stable)
+Packaging       : Jar
+Group           : com.gvp
+Artifact        : mari-fariyaad
+Name            : Mari-Fariyaad
+Package Name    : com.gvp.marifariyaad
+Description     : Complaint Management Portal for GVP Estate and University Campus
+
+Future Backend Technologies
+--------------------------------------------------------------------------------
+- Spring Boot 3.x
+- Spring Security + JWT Authentication
+- Spring Data JPA + Hibernate
+- MySQL Database
+- Thymeleaf Template Engine
+- Apache Maven 3.9.16 / Java 17
+
+Frontend Scope & Technology Stack
+--------------------------------------------------------------------------------
+- HTML5 (Thymeleaf Compatible)
+- CSS3 + Custom GVP Gujarat Vidyapith Heritage Theme (#C17B3A Saffron, #6B4226 Deep Brown, #F5EDE0 Warm Cream)
+- Bootstrap 5 Latest + Bootstrap Icons
+- Vanilla JavaScript
+- 3 Languages Support: English, Gujarati (ગુજરાતી), Hindi (हिन्दी) via JSON translation files
+- Responsive layout (Desktop, Tablet, Mobile)
+- Dark Mode toggle with localStorage
+
+Folder Structure
+--------------------------------------------------------------------------------
+Mari-Fariyaad/
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+├── .mvn/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/gvp/marifariyaad/
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       ├── templates/
+│   │       │   ├── index.html
+│   │       │   ├── about.html
+│   │       │   ├── login.html
+│   │       │   ├── admin-login.html
+│   │       │   ├── register.html
+│   │       │   ├── dashboard.html
+│   │       │   ├── admin-dashboard.html
+│   │       │   ├── complaint.html
+│   │       │   ├── track.html
+│   │       │   ├── profile.html
+│   │       │   ├── departments.html
+│   │       │   ├── hostels.html
+│   │       │   ├── faq.html
+│   │       │   └── contact.html
+│   │       └── static/
+│   │           ├── css/
+│   │           │   └── custom.css
+│   │           ├── js/
+│   │           │   └── main.js
+│   │           ├── images/
+│   │           ├── icons/
+│   │           ├── fonts/
+│   │           └── lang/
+│   │               ├── en.json
+│   │               ├── gu.json
+│   │               └── hi.json
+│   └── test/
+└── README.md
+
+Roles Supported
+--------------------------------------------------------------------------------
+- Student
+- Faculty
+- Staff
+- Hostel Resident
+- Visitor
+- Research Scholar
+- Contract Worker
+- Administrator
+
+Complaint Categories
+--------------------------------------------------------------------------------
+1. Kadiya Kam (Masonry Work)
+2. Suthari Kam (Carpentry Work)
+3. Udhai Kam (Termite / Pest Control)
+4. Gatar (Drainage & Sewerage)
+5. Sauchalay Safai (Toilet / Sanitation Cleaning)
+6. Pani (Water Supply)
+7. Plumbing
+8. Electric Work
+9. Street Light
+10. Road Repair
+11. Garden Maintenance
+12. Cleaning
+13. Water Leakage
+14. Water Cooler
+15. Internet / WiFi
+16. Classroom Maintenance
+17. Laboratory Equipment
+18. Computer Issue
+19. Furniture Damage
+20. Other
+
+Mandatory Rules
+--------------------------------------------------------------------------------
+- Email is MANDATORY while submitting any complaint.
+- Single unified portal named "Mari-Fariyaad" with tagline "One Platform for Every Campus Complaint".
+- Inspired by Gujarat Vidyapith heritage & aesthetics ("સા વિદ્યા યા વિમુક્તયે").
+- Return downloadable ZIP containing the full Spring Boot compatible project structure.

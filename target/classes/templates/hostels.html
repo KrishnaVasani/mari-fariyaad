@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hostels & Quarters | Mari-Fariyaad - Gujarat Vidyapith</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/static/css/custom.css" rel="stylesheet" th:href="@{/css/custom.css}">
+</head>
+<body>
+
+  <!-- TOP BAR & HEADER & NAV -->
+  <div class="gvp-topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><i class="bi bi-house-door-fill me-1"></i> Gujarat Vidyapith Hostel Maintenance</div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="gu" onclick="switchLanguage('gu')">ગુજરાતી</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="hi" onclick="switchLanguage('hi')">हिन्दी</button>
+        </div>
+        <button id="themeToggleBtn" class="theme-toggle-btn"><i class="bi bi-moon-stars-fill"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <header class="gvp-header py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://www.gujaratvidyapith.org/assets/images/gujarat-vidyapith-logo.png" alt="GVP Logo" class="gvp-logo-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gujarat_Vidyapith_Logo.png';"/>
+        <div>
+          <div class="gvp-brand-title">Mari-<span>Fariyaad</span></div>
+          <div class="text-muted small">Hostels & Quarters Maintenance Portal</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><span data-i18n="nav_home">Home</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html"><span data-i18n="nav_about">About</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/complaint.html"><span data-i18n="nav_complaint">File Complaint</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/track.html"><span data-i18n="nav_track">Track Status</span></a></li>
+
+          <li class="nav-item"><a class="nav-link" href="/faq.html"><span data-i18n="nav_faq">FAQ</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact.html"><span data-i18n="nav_contact">Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="font-heading fw-bold text-dark">Campus Hostels & Residential Quarters</h2>
+      <p class="text-muted">Dedicated maintenance coverage for all student hostels and staff residence blocks.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="gvp-card p-4 d-flex gap-3 align-items-center">
+          <div class="fs-1 text-primary p-3 bg-primary-subtle rounded-circle"><i class="bi bi-gender-male"></i></div>
+          <div>
+            <h5 class="fw-bold mb-1">Boys Hostel Block A & B</h5>
+            <p class="small text-muted mb-2">UG & PG Boys Hostel facilities, dining hall, sanitation & water coolers.</p>
+            <a href="/complaint.html" class="btn btn-sm btn-gvp-primary">File Hostel Complaint</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="gvp-card p-4 d-flex gap-3 align-items-center">
+          <div class="fs-1 text-danger p-3 bg-danger-subtle rounded-circle"><i class="bi bi-gender-female"></i></div>
+          <div>
+            <h5 class="fw-bold mb-1">Girls Hostel Complex</h5>
+            <p class="small text-muted mb-2">Secure accommodation for female students, study rooms & solar water heaters.</p>
+            <a href="/complaint.html" class="btn btn-sm btn-gvp-primary">File Hostel Complaint</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="gvp-card p-4 d-flex gap-3 align-items-center">
+          <div class="fs-1 text-warning p-3 bg-warning-subtle rounded-circle"><i class="bi bi-award"></i></div>
+          <div>
+            <h5 class="fw-bold mb-1">Research Scholar Hostel</h5>
+            <p class="small text-muted mb-2">Accommodation for M.Phil, Ph.D. scholars with high-speed WiFi and study desks.</p>
+            <a href="/complaint.html" class="btn btn-sm btn-gvp-primary">File Hostel Complaint</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="gvp-card p-4 d-flex gap-3 align-items-center">
+          <div class="fs-1 text-success p-3 bg-success-subtle rounded-circle"><i class="bi bi-houses"></i></div>
+          <div>
+            <h5 class="fw-bold mb-1">Faculty & Staff Quarters</h5>
+            <p class="small text-muted mb-2">Estate residential quarters, plumbing, road maintenance & streetlight services.</p>
+            <a href="/complaint.html" class="btn btn-sm btn-gvp-primary">File Quarter Complaint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container text-center small text-light-50">
+      © 2026 Gujarat Vidyapith. Mari-Fariyaad Hostels Directory.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+</html>

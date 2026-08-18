@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard | Mari-Fariyaad Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/static/css/custom.css" rel="stylesheet" th:href="@{/css/custom.css}">
+</head>
+<body id="userDashboardContainer">
+
+  <!-- TOP BAR -->
+  <div class="gvp-topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div id="dashboardWelcome"><i class="bi bi-person-circle me-1"></i> Welcome</div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="gu" onclick="switchLanguage('gu')">ગુજરાતી</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="hi" onclick="switchLanguage('hi')">हिन्दी</button>
+        </div>
+        <a href="/profile.html" class="text-white small me-2"><i class="bi bi-gear-fill me-1"></i> Profile</a>
+        <a href="#" data-action="logout" class="text-warning small"><i class="bi bi-box-arrow-right me-1"></i> Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="gvp-header py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://www.gujaratvidyapith.org/assets/images/gujarat-vidyapith-logo.png" alt="GVP Logo" class="gvp-logo-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gujarat_Vidyapith_Logo.png';"/>
+        <div>
+          <div class="gvp-brand-title">Mari-<span>Fariyaad</span></div>
+          <div class="text-muted small">User Dashboard & Complaints Portal</div>
+        </div>
+      </div>
+      <div>
+        <a href="/complaint.html" class="btn btn-gvp-primary"><i class="bi bi-plus-circle-fill me-1"></i> New Complaint</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-4">
+    <!-- STATS CARDS -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3 col-6">
+        <div class="gvp-card p-3 border-start border-4 border-primary">
+          <div class="text-muted small">Total Complaints</div>
+          <div class="fs-2 fw-bold text-dark" id="statTotal">0</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="gvp-card p-3 border-start border-4 border-warning">
+          <div class="text-muted small">Pending Review</div>
+          <div class="fs-2 fw-bold text-warning" id="statPending">0</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="gvp-card p-3 border-start border-4 border-info">
+          <div class="text-muted small">In Progress</div>
+          <div class="fs-2 fw-bold text-info" id="statProgress">0</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="gvp-card p-3 border-start border-4 border-success">
+          <div class="text-muted small">Resolved</div>
+          <div class="fs-2 fw-bold text-success" id="statResolved">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECENT COMPLAINTS TABLE -->
+    <div class="gvp-card p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold text-dark mb-0"><i class="bi bi-clock-history me-2"></i> My Submitted Complaints</h5>
+        <a href="/complaint.html" class="btn btn-sm btn-gvp-primary"><i class="bi bi-plus-lg me-1"></i> File New</a>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Ticket ID</th>
+              <th>Title</th>
+              <th>Priority</th>
+              <th>Building / Spot</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="userComplaintsTbody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+</html>

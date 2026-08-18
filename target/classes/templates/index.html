@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mari-Fariyaad | GVP Estate Complaint Management Portal</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom GVP Stylesheet -->
+  <link href="/static/css/custom.css" rel="stylesheet" th:href="@{/css/custom.css}">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="gvp-topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <i class="bi bi-geo-alt-fill me-1"></i> Ashram Road, Ahmedabad 380009 | Est. 1920 by Mahatma Gandhi
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <a href="https://www.gujaratvidyapith.org" target="_blank" class="d-none d-md-inline"><i class="bi bi-globe me-1"></i> gujaratvidyapith.org</a>
+        <a href="tel:07940016200" class="d-none d-sm-inline"><i class="bi bi-telephone-fill me-1"></i> 079-40016200</a>
+        
+        <!-- Language Switcher -->
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="gu" onclick="switchLanguage('gu')">ગુજરાતી</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="hi" onclick="switchLanguage('hi')">हिन्दी</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="gvp-header py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://www.gujaratvidyapith.org/assets/images/gujarat-vidyapith-logo.png" 
+             alt="Gujarat Vidyapith Logo" 
+             class="gvp-logo-img" 
+             onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gujarat_Vidyapith_Logo.png';"/>
+        <div>
+          <div class="gvp-brand-title">Mari-<span>Fariyaad</span> (મારી-ફરિયાદ)</div>
+          <div class="text-muted small" data-i18n="brand_tagline">One Platform for Every Campus Complaint</div>
+        </div>
+      </div>
+      <div class="gvp-motto-quote d-none d-lg-block">
+        "સા વિદ્યા યા વિમુક્તયે"
+        <div class="small text-muted" data-i18n="gvp_motto">— Knowledge is that which liberates</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="/"><i class="bi bi-house-door-fill me-1"></i> <span data-i18n="nav_home">Home</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html"><i class="bi bi-info-circle-fill me-1"></i> <span data-i18n="nav_about">About</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/complaint.html"><i class="bi bi-pencil-square me-1"></i> <span data-i18n="nav_complaint">File Complaint</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/track.html"><i class="bi bi-search me-1"></i> <span data-i18n="nav_track">Track Status</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/departments.html"><i class="bi bi-building-fill me-1"></i> 
+          </a></li>
+          <li class="nav-item"><a class="nav-link" href="/faq.html"><i class="bi bi-question-circle-fill me-1"></i> <span data-i18n="nav_faq">FAQ</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact.html"><i class="bi bi-envelope-fill me-1"></i> <span data-i18n="nav_contact">Contact</span></a></li>
+        </ul>
+        <div class="d-flex gap-2" id="navAuthArea">
+          <a href="/login.html" class="btn btn-outline-primary btn-sm fw-semibold"><i class="bi bi-box-arrow-in-right me-1"></i> <span data-i18n="nav_login">Login</span></a>
+          
+          <a href="/register.html" class="btn btn-gvp-primary btn-sm"><i class="bi bi-person-plus-fill me-1"></i> <span data-i18n="nav_register">Register</span></a>
+          
+          <!-- <a href="/admin-login.html" class="btn btn-outline-dark btn-sm"><i class="bi bi-shield-lock-fill me-1"></i> Admin</a> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="mf-hero-section">
+    <div class="container">
+      <div class="mf-hero-banner">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="mf-hero-badge" data-i18n="hero_est_info">Est. 1920 by Mahatma Gandhi &middot; Deemed University Since 1963</span>
+            <h1 class="mf-hero-title" data-i18n="hero_title">Mari-Fariyaad</h1>
+            <p class="mf-hero-tagline" data-i18n="hero_subtitle">Sa Vidya Ya Vimuktaye — Knowledge is that which liberates</p>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="/complaint.html" class="mf-btn-solid" data-i18n="hero_btn_register">Lodge Complaint</a>
+              <a href="/track.html" class="mf-btn-outline-light" data-i18n="hero_btn_track">Track Complaint</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="mf-quick-track-card">
+              <h5 class="fw-bold mb-3" data-i18n="hero_quick_track_title">🚀 Quick Complaint Tracking</h5>
+              <div class="mb-3">
+                <label class="form-label small fw-bold" data-i18n="hero_quick_track_label">Enter Complaint ID (e.g. GVP-2026-8942)</label>
+                <input type="text" id="quickTrackId" class="form-control" placeholder="GVP-2026-XXXX" data-i18n="hero_quick_track_placeholder" onkeydown="if(event.key==='Enter'){quickTrack();}">
+              </div>
+              <button onclick="quickTrack()" class="mf-btn-solid w-100 border-0" data-i18n="hero_track_now">Track Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTER METRICS SECTION -->
+  <section class="py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="stat-box">
+            <div class="stat-num">1,250+</div>
+            <div class="text-muted fw-medium" data-i18n="stat_resolved">Complaints Solved</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-box">
+            <div class="stat-num">25+</div>
+            <div class="text-muted fw-medium" data-i18n="stat_departments">University Depts</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-box">
+            <div class="stat-num">15+</div>
+            <div class="text-muted fw-medium" data-i18n="stat_hostels">Campus Hostels</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-box">
+            <div class="stat-num">24x7</div>
+            <div class="text-muted fw-medium" data-i18n="stat_support">Active Resolution</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO CAN FILE COMPLAINT SECTION -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="font-heading fw-bold text-dark mb-2" data-i18n="roles_title">Who Can File A Complaint?</h2>
+        <p class="text-muted">Mari-Fariyaad is open to all authorized members across Gujarat Vidyapith Estate.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-5 col-sm-8">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="fs-1 text-primary mb-2"><i class="bi bi-mortarboard-fill"></i></div>
+            <h6 class="fw-bold" data-i18n="role_student">Student</h6>
+            <small class="text-muted">UG, PG, M.Phil & Diploma students</small>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-8">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="fs-1 text-success mb-2"><i class="bi bi-person-workspace"></i></div>
+            <h6 class="fw-bold" data-i18n="role_faculty">Faculty</h6>
+            <small class="text-muted">Professors, Lecturers & Research staff</small>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-8">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="fs-1 text-warning mb-2"><i class="bi bi-building-gear"></i></div>
+            <h6 class="fw-bold" data-i18n="role_staff">Staff Member</h6>
+            <small class="text-muted">Administrative & estate personnel</small>
+          </div>
+        </div>
+       <!--<div class="col-md-3 col-sm-6">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="fs-1 text-danger mb-2"><i class="bi bi-house-door-fill"></i></div>
+            <h6 class="fw-bold" data-i18n="role_hosteller">Hostel Resident</h6>
+            <small class="text-muted">Boys, Girls & Research Scholars Hostel</small>
+          </div>
+        </div>--> 
+      </div>
+    </div>
+  </section>
+
+  <!-- POPULAR COMPLAINT CATEGORIES -->
+  <section class="py-5 bg-body-tertiary border-top">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <h2 class="font-heading fw-bold text-dark mb-1">Maintenance Categories</h2>
+          <p class="text-muted mb-0">Covering 20 specialized estate & campus infrastructure services.</p>
+        </div>
+        <a href="/complaint.html" class="btn btn-gvp-outline btn-sm">View All Categories <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-hammer fs-3 text-warning"></i> <div><strong data-i18n="cat_kadiyakam">Kadiya Kam</strong><br/><small class="text-muted">Masonry & Civil Work</small></div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-tools fs-3 text-success"></i> <div><strong data-i18n="cat_sutharikam">Suthari Kam</strong><br/><small class="text-muted">Carpentry & Doors</small></div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-bug fs-3 text-danger"></i> <div><strong data-i18n="cat_udhaikam">Udhai Kam</strong><br/><small class="text-muted">Pest Control & Termites</small></div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-droplet-half fs-3 text-primary"></i> <div><strong data-i18n="cat_gatar">Gatar Work</strong><br/><small class="text-muted">Drainage & Sewerage</small></div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-lightning-charge-fill fs-3 text-warning"></i> <div><strong data-i18n="cat_electric">Electric Work</strong><br/><small class="text-muted">Wiring & Lights</small></div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-wifi fs-3 text-info"></i> <div><strong data-i18n="cat_wifi">Internet / WiFi</strong><br/><small class="text-muted">Network connectivity</small></div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-water fs-3 text-primary"></i> <div><strong data-i18n="cat_pani">Pani & Plumbing</strong><br/><small class="text-muted">Water Supply & Taps</small></div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="p-3 bg-white border rounded-3 d-flex align-items-center gap-3"><i class="bi bi-trash fs-3 text-secondary"></i> <div><strong data-i18n="cat_sauchalay">Sauchalay Safai</strong><br/><small class="text-muted">Sanitation & Hygiene</small></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+  <div class="row g-4 mb-4 justify-content-center">
+        <div class="col-lg-4 col-md-5">
+          <h5 class="font-heading fw-bold text-warning mb-2">Mari-Fariyaad (મારી-ફરિયાદ)</h5>
+          <p class="small text-light-50">Gujarat Vidyapith Estate & Infrastructure Maintenance Complaint Management System.</p>
+          <div class="small"><i class="bi bi-geo-alt me-1 text-warning"></i> Ashram Road, Near Income Tax Office, Ahmedabad, Gujarat 380009</div>
+        </div>
+        <div class="col-md-2 col-6">
+          <h6 class="fw-bold text-white mb-2">Quick Links</h6>
+          <ul class="list-unstyled small mb-0">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Portal</a></li>
+            <li><a href="/complaint.html">Register Complaint</a></li>
+            <li><a href="/track.html">Track Complaint</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-6">
+          <h6 class="fw-bold text-white mb-2">Campus Areas</h6>
+          <ul class="list-unstyled small mb-0">
+           
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+      </div>
+      <div class="text-center border-top border-secondary pt-3 small text-light-50" data-i18n="footer_rights">
+        © 2026 Gujarat Vidyapith. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+</html>

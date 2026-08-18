@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Mari-Fariyaad - Gujarat Vidyapith</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/static/css/custom.css" rel="stylesheet" th:href="@{/css/custom.css}">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="gvp-topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><i class="bi bi-geo-alt-fill me-1"></i> Ashram Road, Ahmedabad 380009</div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="gu" onclick="switchLanguage('gu')">ગુજરાતી</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="hi" onclick="switchLanguage('hi')">हिन्दी</button>
+        </div>
+        <button id="themeToggleBtn" class="theme-toggle-btn"><i class="bi bi-moon-stars-fill"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="gvp-header py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://www.gujaratvidyapith.org/assets/images/gujarat-vidyapith-logo.png" alt="GVP Logo" class="gvp-logo-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gujarat_Vidyapith_Logo.png';"/>
+        <div>
+          <div class="gvp-brand-title">Mari-<span>Fariyaad</span></div>
+          <div class="text-muted small" data-i18n="brand_tagline">One Platform for Every Campus Complaint</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/complaint.html">File Complaint</a></li>
+          <li class="nav-item"><a class="nav-link" href="/track.html">Track Status</a></li>
+          <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ABOUT CONTENT -->
+  <div class="container py-5">
+    <div class="row g-4 align-items-center mb-5">
+      <div class="col-lg-6">
+        <span class="gvp-hero-badge mb-2">Established 1920 by Mahatma Gandhi</span>
+        <h2 class="font-heading fw-bold text-dark mb-3">About Mari-Fariyaad Estate Portal</h2>
+        <p class="text-secondary leading-relaxed">
+          <strong>Mari-Fariyaad</strong> (મારી-ફરિયાદ) is the centralized digital complaint resolution and estate maintenance portal for Gujarat Vidyapith. The portal streamlines infrastructure maintenance across all University Departments, Hostels, Estate Areas, and Campus Facilities.
+        </p>
+        <p class="text-secondary">
+          Whether you are a student, faculty member, administrative staff, hostel resident, or campus visitor, Mari-Fariyaad provides a transparent, accountable, and time-bound platform to report civil, electrical, sanitation, plumbing, and IT maintenance issues.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="gvp-card p-4">
+          <h5 class="fw-bold text-dark mb-3 border-bottom pb-2"><i class="bi bi-eye-fill text-warning me-2"></i> Our Core Objectives</h5>
+          <ul class="list-group list-group-flush small">
+            <li class="list-group-item bg-transparent"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>100% Digital Tracking:</strong> Real-time status updates from ticket generation to final resolution.</li>
+            <li class="list-group-item bg-transparent"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Accountability & Speed:</strong> SLA-driven task allocation to authorized estate technicians.</li>
+            <li class="list-group-item bg-transparent"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Multi-Language Accessibility:</strong> Native support for Gujarati, English, and Hindi.</li>
+            <li class="list-group-item bg-transparent"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Campus-Wide Scope:</strong> Dedicated coverage for Hostels, Departments, and Estate Maintenance.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCESS FLOW -->
+    <div class="my-5">
+      <h3 class="font-heading fw-bold text-center mb-4">Complaint Resolution Lifecycle</h3>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="display-6 text-primary mb-2">1</div>
+            <h6 class="fw-bold">1. Registration</h6>
+            <small class="text-muted">User files a complaint with mandatory Email and location details.</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="display-6 text-warning mb-2">2</div>
+            <h6 class="fw-bold">2. Triage & Allocation</h6>
+            <small class="text-muted">Estate Admin reviews ticket and assigns a designated electrician, plumber, or artisan.</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="display-6 text-info mb-2">3</div>
+            <h6 class="fw-bold">3. On-Site Action</h6>
+            <small class="text-muted">Technician inspects and repairs the reported issue on-site.</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="gvp-card p-3 text-center h-100">
+            <div class="display-6 text-success mb-2">4</div>
+            <h6 class="fw-bold">4. Verification & Closure</h6>
+            <small class="text-muted">Ticket status updated to Resolved with email confirmation to user.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container text-center small text-light-50">
+      © 2026 Gujarat Vidyapith. Mari-Fariyaad Portal.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+</html>

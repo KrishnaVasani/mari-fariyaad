@@ -1,0 +1,582 @@
+/* ===================================================================
+   Mari-Fariyaad - GVP Campus Complaint Portal
+   Custom Stylesheet (Gujarat Vidyapith Heritage Palette)
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Natural Tones Palette */
+  --gvp-saffron: #5A5A40;          /* Deep Olive Green */
+  --gvp-saffron-dark: #43432F;     /* Darker Olive */
+  --gvp-accent-sand: #D4A373;      /* Warm Terracotta / Sand */
+  --gvp-brown: #3D3D29;            /* Dark Earthy Neutral */
+  --gvp-dark-brown: #2B2B1D;       /* Deep Charcoal Olive */
+  --gvp-cream: #FDFBF7;           /* Natural Off-White Canvas */
+  --gvp-warm-bg: #F9F8F4;         /* Soft Natural Surface */
+  --gvp-sidebar-bg: #F5F4EE;      /* Soft Grey-Olive Sidebar */
+  --gvp-card-bg: #FFFFFF;
+  --gvp-border: #E5E2D9;          /* Subtle Warm Border */
+  --gvp-border-hover: #DEDBCF;
+  --gvp-text: #3D3D29;
+  --gvp-text-muted: #8A8A6F;
+  
+  /* Status Colors */
+  --status-pending: #D97706;
+  --status-assigned: #2563EB;
+  --status-progress: #0284C7;
+  --status-resolved: #059669;
+  --status-rejected: #DC2626;
+
+  --shadow-sm: 0 2px 10px rgba(61, 61, 41, 0.04);
+  --shadow-md: 0 8px 24px rgba(61, 61, 41, 0.08);
+  --shadow-lg: 0 16px 36px rgba(61, 61, 41, 0.12);
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Overrides - Deep Natural Slate */
+[data-bs-theme="dark"] {
+  --gvp-saffron: #8A8A6F;
+  --gvp-saffron-dark: #6E6E56;
+  --gvp-accent-sand: #D4A373;
+  --gvp-brown: #1A1A12;
+  --gvp-dark-brown: #12120C;
+  --gvp-cream: #181812;
+  --gvp-warm-bg: #22221A;
+  --gvp-sidebar-bg: #202018;
+  --gvp-card-bg: #26261E;
+  --gvp-border: #3A3A2E;
+  --gvp-border-hover: #4A4A3B;
+  --gvp-text: #F0EEE6;
+  --gvp-text-muted: #A8A892;
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: 'Hind', 'Noto Sans Gujarati', 'Noto Sans Devanagari', sans-serif;
+  background-color: var(--gvp-cream);
+  color: var(--gvp-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fonts */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+/* GVP Header Top Bar */
+.gvp-topbar {
+  background-color: var(--gvp-brown);
+  color: #E5E2D9;
+  font-size: 0.8rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(229, 226, 217, 0.15);
+}
+
+.gvp-topbar a {
+  color: #E5E2D9;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.gvp-topbar a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+/* GVP Main Header & Navbar */
+.gvp-header {
+  background-color: var(--gvp-card-bg);
+  border-bottom: 3px solid var(--gvp-saffron);
+  box-shadow: var(--shadow-sm);
+  position: static;
+  top: 0;
+  padding:18px 0;
+  z-index: 1020;
+}
+
+.gvp-logo-img {
+  width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.gvp-brand-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--gvp-text);
+  line-height: 1.1;
+}
+
+.gvp-brand-title span {
+  color: var(--gvp-saffron);
+}
+
+.gvp-motto-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gvp-text-muted);
+  border-left: 3px solid var(--gvp-accent-sand);
+  padding-left: 18px;
+  margin-left: 30px;
+  line-height: 1.8;
+  max-width: 260px;
+}
+
+/* Navigation Links */
+.nav-link {
+  font-weight: 500;
+  color: var(--gvp-text);
+  padding: 0.5rem 0.85rem !important;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--gvp-saffron) !important;
+  background-color: rgba(90, 90, 64, 0.08);
+}
+
+/* Language & Theme Selectors */
+.lang-selector-btn, .theme-toggle-btn {
+  border: 1px solid var(--gvp-border);
+  background: var(--gvp-warm-bg);
+  color: var(--gvp-text);
+  border-radius: 30px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.lang-selector-btn:hover, .theme-toggle-btn:hover {
+  border-color: var(--gvp-saffron);
+  background: var(--gvp-saffron);
+  color: #FFFFFF;
+}
+
+/* Buttons */
+.btn-gvp-primary {
+  background-color: var(--gvp-saffron);
+  border-color: var(--gvp-saffron);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.55rem 1.4rem;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(90, 90, 64, 0.2);
+}
+
+.btn-gvp-primary:hover, .btn-gvp-primary:focus {
+  background-color: var(--gvp-saffron-dark);
+  border-color: var(--gvp-saffron-dark);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(90, 90, 64, 0.3);
+}
+
+.btn-gvp-outline {
+  border: 1.5px solid var(--gvp-saffron);
+  color: var(--gvp-saffron);
+  background: transparent;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.55rem 1.4rem;
+  transition: var(--transition-fast);
+}
+
+.btn-gvp-outline:hover {
+  background-color: var(--gvp-saffron);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Cards & Containers */
+.gvp-card {
+  background-color: var(--gvp-card-bg);
+  border: 1px solid var(--gvp-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+  overflow: hidden;
+}
+
+.gvp-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--gvp-border-hover);
+}
+
+/* Hero Section */
+.gvp-hero {
+  background: linear-gradient(135deg, rgba(90, 90, 64, 0.06) 0%, rgba(212, 163, 115, 0.08) 100%), var(--gvp-warm-bg);
+  border-bottom: 1px solid var(--gvp-border);
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gvp-hero-badge {
+  background: rgba(90, 90, 64, 0.1);
+  color: var(--gvp-saffron);
+  border: 1px solid rgba(90, 90, 64, 0.25);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+/* Natural Hero Feature Card */
+.natural-hero-card {
+  background-color: #5A5A40;
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ======================================================
+   NEW HERO BANNER (Screenshot / Estate Portal style)
+   Self-contained brown-saffron palette, independent of
+   the site-wide olive theme, to match the approved mock.
+====================================================== */
+.mf-hero-section {
+  padding: 1.5rem 0 2.5rem;
+}
+
+.mf-hero-banner {
+  background:
+    linear-gradient(135deg, rgba(107, 66, 38, 0.94), rgba(59, 34, 18, 0.97)),
+    url('https://www.gujaratvidyapith.org/assets/images/gujarat-vidyapith-logo.png') center/contain no-repeat;
+  color: #FFFFFF;
+  padding: 48px 40px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 34px rgba(59, 34, 18, 0.25);
+}
+
+.mf-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(193, 123, 58, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.mf-hero-banner .row {
+  position: relative;
+  z-index: 1;
+}
+
+.mf-hero-badge {
+  background: #F2B01E;
+  color: #2B2B1D;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 6px 16px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.mf-hero-title {
+  font-weight: 800;
+  font-size: 2.6rem;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.mf-hero-tagline {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+}
+
+.mf-btn-solid {
+  background-color: #B9772F;
+  color: #FFFFFF;
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px 26px;
+  transition: var(--transition-fast);
+}
+
+.mf-btn-solid:hover {
+  background-color: #9E6128;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.mf-btn-outline-light {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px 26px;
+  transition: var(--transition-fast);
+}
+
+.mf-btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.mf-quick-track-card {
+  background: #F3F1EC;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+
+.mf-quick-track-card h5 {
+  color: #B9772F;
+}
+
+.mf-quick-track-card label {
+  color: #2B2B1D;
+}
+
+.mf-quick-track-card .form-control {
+  border-radius: 8px;
+  border: 1px solid #DEDBCF;
+  padding: 10px 14px;
+}
+
+.mf-quick-track-card .form-control:focus {
+  border-color: #B9772F;
+  box-shadow: 0 0 0 0.2rem rgba(185, 119, 47, 0.2);
+}
+
+@media (max-width: 991px) {
+  .mf-hero-title {
+    font-size: 2rem;
+  }
+  .mf-hero-banner {
+    padding: 32px 24px;
+  }
+}
+
+/* Stats Counter Badge */
+.stat-box {
+  background: var(--gvp-card-bg);
+  border: 1px solid var(--gvp-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.stat-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--gvp-saffron);
+}
+
+.stat-num {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gvp-saffron);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* Status Badges */
+.badge-status {
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-pending { background-color: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+.badge-assigned { background-color: #DBEAFE; color: #2563EB; border: 1px solid #BFDBFE; }
+.badge-progress { background-color: #E0F2FE; color: #0284C7; border: 1px solid #BAE6FD; }
+.badge-resolved { background-color: #D1FAE5; color: #059669; border: 1px solid #A7F3D0; }
+.badge-rejected { background-color: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; }
+
+/* Priority Badges */
+.badge-priority-low { background-color: #E2E8F0; color: #475569; }
+.badge-priority-medium { background-color: #FEF3C7; color: #92400E; }
+.badge-priority-high { background-color: #FEE2E2; color: #991B1B; }
+.badge-priority-emergency { background-color: #7F1D1D; color: #FFFFFF; animation: pulse 2s infinite; }
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Timeline Progress Component */
+.timeline-stepper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.timeline-stepper::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--gvp-border);
+  z-index: 1;
+}
+
+.timeline-step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+}
+
+.timeline-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gvp-card-bg);
+  border: 3px solid var(--gvp-border);
+  color: var(--gvp-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-weight: 700;
+  transition: var(--transition-fast);
+}
+
+.timeline-step.completed .timeline-circle {
+  background-color: var(--status-resolved);
+  border-color: var(--status-resolved);
+  color: #FFFFFF;
+}
+
+.timeline-step.active .timeline-circle {
+  background-color: var(--gvp-saffron);
+  border-color: var(--gvp-saffron);
+  color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(193, 123, 58, 0.25);
+}
+
+.timeline-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gvp-text-muted);
+}
+
+.timeline-step.active .timeline-label,
+.timeline-step.completed .timeline-label {
+  color: var(--gvp-text);
+}
+
+/* Drag & Drop Upload Zone */
+.upload-zone {
+  border: 2px dashed var(--gvp-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--gvp-warm-bg);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.upload-zone:hover, .upload-zone.dragover {
+  border-color: var(--gvp-saffron);
+  background-color: rgba(193, 123, 58, 0.05);
+}
+
+/* Form Controls */
+.form-control, .form-select {
+  border-color: var(--gvp-border);
+  background-color: var(--gvp-card-bg);
+  color: var(--gvp-text);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--gvp-saffron);
+  box-shadow: 0 0 0 3px rgba(193, 123, 58, 0.2);
+  background-color: var(--gvp-card-bg);
+  color: var(--gvp-text);
+}
+
+/* Sidebar Dashboard Navigation */
+.admin-sidebar {
+  background-color: var(--gvp-sidebar-bg);
+  border-right: 1px solid var(--gvp-border);
+  min-height: calc(100vh - 120px);
+  padding: 1.25rem 0.75rem;
+}
+
+.admin-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  color: var(--gvp-text);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+  margin-bottom: 4px;
+}
+
+.admin-sidebar-item:hover, .admin-sidebar-item.active {
+  background-color: var(--gvp-saffron);
+  color: #FFFFFF;
+}
+
+/* Footer */
+footer {
+  background-color: var(--gvp-dark-brown);
+  color: #F3EAE0;
+  border-top: 3px solid var(--gvp-saffron);
+  margin-top: auto;
+  padding: 2.5rem 0 1rem;
+}
+
+footer a {
+  color: #FFD9A8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gvp-brand-title { font-size: 1.1rem; }
+  .gvp-motto-quote { display: none; }
+  .timeline-stepper { flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .timeline-stepper::before { display: none; }
+  .timeline-step { display: flex; align-items: center; gap: 12px; }
+  .timeline-circle { margin: 0; }
+}
