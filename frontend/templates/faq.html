@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frequently Asked Questions | Mari-Fariyaad - Gujarat Vidyapith</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/static/css/custom.css" rel="stylesheet" th:href="@{/css/custom.css}">
+</head>
+<body>
+
+  <!-- TOP BAR & HEADER & NAV -->
+  <div class="gvp-topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><i class="bi bi-question-circle-fill me-1"></i> FAQ & Help Desk</div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="gu" onclick="switchLanguage('gu')">ગુજરાતી</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="hi" onclick="switchLanguage('hi')">हिन्दी</button>
+        </div>
+        <button id="themeToggleBtn" class="theme-toggle-btn"><i class="bi bi-moon-stars-fill"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <header class="gvp-header py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://www.gujaratvidyapith.org/assets/images/gujarat-vidyapith-logo.png" alt="GVP Logo" class="gvp-logo-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gujarat_Vidyapith_Logo.png';"/>
+        <div>
+          <div class="gvp-brand-title">Mari-<span>Fariyaad</span></div>
+          <div class="text-muted small">Help & FAQ Portal</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><span data-i18n="nav_home">Home</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html"><span data-i18n="nav_about">About</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/complaint.html"><span data-i18n="nav_complaint">File Complaint</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/track.html"><span data-i18n="nav_track">Track Status</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="/faq.html"><span data-i18n="nav_faq">FAQ</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact.html"><span data-i18n="nav_contact">Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="font-heading fw-bold text-dark">Frequently Asked Questions</h2>
+      <p class="text-muted">Find quick answers regarding Mari-Fariyaad complaint procedures & estate services.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion gvp-card" id="faqAccordion">
+          <div class="accordion-item border-bottom">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Is Email Address mandatory while filing a complaint?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary">
+                Yes. An email address is strictly mandatory for every complaint submitted on Mari-Fariyaad. It is used to send automated ticket confirmation IDs and live status updates when a maintainer resolves your ticket.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-bottom">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Who can use the Mari-Fariyaad portal?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary">
+                The portal is open to all Gujarat Vidyapith Students, Faculty members, Administrative Staff, Hostel Residents, Research Scholars, Contract Workers, and campus visitors.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-bottom">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                How do I track my complaint progress?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary">
+                Visit the <a href="/track.html">Track Complaint</a> page, type your Ticket ID (e.g., GVP-2026-101) or your registered Email address, and click Search to view the interactive stepper progress.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-bottom">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                What are the main categories of maintenance available?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary">
+                Mari-Fariyaad covers 20 main categories including Kadiya Kam (Masonry), Suthari Kam (Carpentry), Udhai Kam (Pest Control), Gatar (Drainage), Sauchalay Safai (Sanitation), Pani (Water Supply), Plumbing, Electric Work, Street Lights, WiFi, Classroom & Lab Equipment maintenance.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                How do I switch the website language to Gujarati or Hindi?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary">
+                You can switch between Gujarati, English, and Hindi anytime using the language switcher buttons in the top bar.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container text-center small text-light-50">
+      © 2026 Gujarat Vidyapith. Mari-Fariyaad FAQ.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
+  <script src="/static/js/virtual-keyboard.js" th:src="@{/js/virtual-keyboard.js}"></script>
+</body>
+</html>

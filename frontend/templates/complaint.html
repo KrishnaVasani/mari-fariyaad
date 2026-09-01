@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>File a Complaint | Mari-Fariyaad - Gujarat Vidyapith</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/static/css/custom.css" rel="stylesheet" th:href="@{/css/custom.css}">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="gvp-topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><i class="bi bi-geo-alt-fill me-1"></i> Ashram Road, Ahmedabad 380009</div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="gu" onclick="switchLanguage('gu')">ગુજરાતી</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+          <button type="button" class="btn btn-outline-light lang-btn" data-lang="hi" onclick="switchLanguage('hi')">हिन्दी</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER & NAV -->
+  <header class="gvp-header py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://www.gujaratvidyapith.org/assets/images/gujarat-vidyapith-logo.png" alt="GVP Logo" class="gvp-logo-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gujarat_Vidyapith_Logo.png';"/>
+        <div>
+          <div class="gvp-brand-title">Mari-<span>Fariyaad</span></div>
+          <div class="text-muted small" data-i18n="brand_tagline">One Platform for Every Campus Complaint</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/complaint.html">File Complaint</a></li>
+          <li class="nav-item"><a class="nav-link" href="/track.html">Track Status</a></li>
+        
+          <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- FORM CONTAINER -->
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="gvp-card p-4 p-md-5">
+          <div class="border-bottom pb-3 mb-4">
+            <span class="badge bg-warning text-dark mb-2"><i class="bi bi-pencil-fill me-1"></i> Official Form</span>
+            <h2 class="font-heading fw-bold text-dark mb-1">Register Estate Complaint (ફરિયાદ નોંધાવો)</h2>
+            <p class="text-muted mb-0">Please fill in accurate location and contact details for swift estate technician assignment.</p>
+          </div>
+
+          <form id="complaintRegisterForm" class="needs-validation" novalidate>
+            <div id="complaintAlert"></div>
+            <!-- Personal Info -->
+            <h5 class="fw-bold text-primary mb-3"><i class="bi bi-person-lines-fill me-2"></i> 1. Contact & Identity Information</h5>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                <input type="text" name="fullName" id="complaintFullName" class="form-control" placeholder="e.g. Rajesh Kumar Parmar" readonly required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address (Mandatory) <span class="text-danger">*</span></label>
+                <input type="email" name="email" id="complaintEmail" class="form-control" placeholder="e.g. rajesh@gujaratvidyapith.org" readonly required>
+                <div class="form-text text-danger" data-i18n="form_email_mandatory_note">Email is required for status notifications.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Mobile Number <span class="text-danger">*</span></label>
+                <input type="tel" name="mobile" id="complaintMobile" class="form-control" placeholder="10-digit mobile number" readonly required pattern="[0-9]{10}">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">User Role / Capacity <span class="text-danger">*</span></label>
+                <select name="role" id="complaintRole" class="form-select" disabled required>
+                  <option value="Student">Student (વિદ્યાર્થી)</option>
+                  <option value="Faculty">Faculty / Professor (અધ્યાપક)</option>
+                  <option value="Staff">Staff Member (કર્મચારી)</option>
+                  <option value="Hostel Resident">Hostel Resident (છત્રાલય નિવાસી)</option>
+                  <option value="Research Scholar">Research Scholar (સંશોધક)</option>
+                  <option value="Visitor">Campus Visitor (મુલાકાતી)</option>
+                  <option value="Contract Worker">Contract Worker</option>
+                  <option value="Other">Other Authorized Person</option>
+                </select>
+                <div class="form-text text-muted">Pulled automatically from your logged-in account.</div>
+              </div>
+            </div>
+
+            <!-- Complaint Category & Type -->
+            <h5 class="fw-bold text-primary mb-3"><i class="bi bi-tools me-2"></i> 2. Complaint Category & Priority</h5>
+            <div class="row g-3 mb-4">
+              <div class="col-md-8">
+                <label class="form-label fw-semibold">Complaint Type / Category <span class="text-danger">*</span></label>
+                <select name="category" class="form-select" required>
+                  <option value="">-- Select Maintenance Category --</option>
+                  <option value="cat_kadiyakam">1. Kadiya Kam (કડીયા કામ / Masonry)</option>
+                  <option value="cat_sutharikam">2. Suthari Kam (સુથારી કામ / Carpentry)</option>
+                  <option value="cat_udhaikam">3. Udhai Kam (ઉધઈ કામ / Termite Control)</option>
+                  <option value="cat_gatar">4. Gatar (ગટર / Drainage & Sewerage)</option>
+                  <option value="cat_sauchalay">5. Sauchalay Safai (શૌચાલય સફાઈ / Toilet Cleaning)</option>
+                  <option value="cat_pani">6. Pani (પાણી પુરવઠો / Water Supply)</option>
+                  <option value="cat_plumbing">7. Plumbing (પ્લમ્બિંગ કામ)</option>
+                  <option value="cat_electric">8. Electric Work (ઈલેક્ટ્રિક કામ)</option>
+                  <option value="cat_streetlight">9. Street Light (સ્ટ્રીટ લાઈટ)</option>
+                  <option value="cat_roadrepair">10. Road Repair (રોડ રીપેર)</option>
+                  <option value="cat_garden">11. Garden Maintenance (બગીચા નિભાવ)</option>
+                  <option value="cat_cleaning">12. Cleaning (કેમ્પસ સફાઈ)</option>
+                  <option value="cat_waterleakage">13. Water Leakage (પાણી લીકેજ)</option>
+                  <option value="cat_watercooler">14. Water Cooler Issue (વોટર કુલર)</option>
+                  <option value="cat_wifi">15. Internet / WiFi (ઈન્ટરનેટ / વાયફાય)</option>
+                  <option value="cat_classroom">16. Classroom Maintenance (ક્લાસરૂમ મેન્ટેનન્સ)</option>
+                  <option value="cat_lab">17. Laboratory Equipment (લેબોરેટરી ઇક્વિપમેન્ટ)</option>
+                  <option value="cat_computer">18. Computer Issue (કોમ્પ્યુટર હાર્ડવેર)</option>
+                  <option value="cat_furniture">19. Furniture Damage (ફર્નિચર ડેમેજ)</option>
+                  <option value="cat_other">20. Other Maintenance (અન્ય સમસ્યા)</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Priority Level <span class="text-danger">*</span></label>
+                <select name="priority" class="form-select" required>
+                  <option value="Low">Low Priority (Routine)</option>
+                  <option value="Medium" selected>Medium Priority (Standard)</option>
+                  <option value="High">High Priority (Urgent)</option>
+                  <option value="Emergency">Emergency (Immediate Action)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Location Details -->
+            <h5 class="fw-bold text-primary mb-3"><i class="bi bi-geo-alt-fill me-2"></i> 3. Specific Campus Location</h5>
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Location Sector <span class="text-danger">*</span></label>
+                <select name="locationType" class="form-select" required>
+                  <option value="University">University Department</option>
+                  <option value="Hostel">Hostel Complex</option>
+                  <option value="Estate Area">Estate / Grounds / Quarters</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Department (If applicable)</label>
+                <select name="department" class="form-select">
+                  <option value="">-- Select Department --</option>
+                  <option value="Computer Engineering">Computer Engineering</option>
+                  <option value="Civil Engineering">Civil Engineering</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</option>
+                  <option value="Electrical Engineering">Electrical Engineering</option>
+                  <option value="IT">Information Technology</option>
+                  <option value="MCA">MCA Department</option>
+                  <option value="MBA">MBA Department</option>
+                  <option value="Science">Faculty of Science</option>
+                  <option value="Commerce">Commerce & Management</option>
+                  <option value="Arts">Faculty of Arts</option>
+                  <option value="Central Library">Central Library</option>
+                  <option value="Administration">Administration Block</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Hostel (If applicable)</label>
+                <select name="hostel" class="form-select">
+                  <option value="">-- Select Hostel --</option>
+                  <option value="Boys Hostel Block A">Boys Hostel Block A</option>
+                  <option value="Boys Hostel Block B">Boys Hostel Block B</option>
+                  <option value="Girls Hostel">Girls Hostel</option>
+                  <option value="Research Scholar Hostel">Research Scholar Hostel</option>
+                  <option value="Staff Quarters">Staff Quarters</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Building Name / Block <span class="text-danger">*</span></label>
+                <input type="text" name="building" class="form-control" placeholder="e.g. Science Block B" data-virtual-keyboard="true" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Floor Number</label>
+                <input type="text" name="floor" class="form-control" placeholder="e.g. 1st Floor / Ground" data-virtual-keyboard="true">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Room / Lab / Spot No.</label>
+                <input type="text" name="room" class="form-control" placeholder="e.g. Room 102 / Corridor" data-virtual-keyboard="true">
+              </div>
+            </div>
+
+            <!-- Description & Photo Upload -->
+            <h5 class="fw-bold text-primary mb-3"><i class="bi bi-file-earmark-text-fill me-2"></i> 4. Problem Description & Photo Upload</h5>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Complaint Subject / Title <span class="text-danger">*</span></label>
+              <input type="text" name="title" class="form-control" placeholder="Short summary of problem (e.g. Water cooler leaking on 1st floor)" data-virtual-keyboard="true" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Detailed Description <span class="text-danger">*</span></label>
+              <textarea name="description" class="form-control" rows="4" placeholder="Explain the maintenance issue in detail..." data-virtual-keyboard="true" required></textarea>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Attach Supporting Photo (Optional)</label>
+              <div class="upload-zone" onclick="document.getElementById('photoInput').click()">
+                <i class="bi bi-cloud-arrow-up-fill fs-1 text-secondary mb-2 d-block"></i>
+                <span class="fw-bold text-dark">Click or Drag & Drop Photo Here</span>
+                <div class="small text-muted">Supports JPG, PNG up to 10MB</div>
+                <input type="file" id="photoInput" class="d-none" accept="image/*">
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Attach Supporting Video (Optional)</label>
+              <div class="upload-zone" onclick="document.getElementById('videoInput').click()">
+                <i class="bi bi-camera-video-fill fs-1 text-secondary mb-2 d-block"></i>
+                <span class="fw-bold text-dark">Click or Drag & Drop Video Here</span>
+                <div class="small text-muted">Supports MP4, WebM, MOV up to 50MB</div>
+                <input type="file" id="videoInput" class="d-none" accept="video/*">
+              </div>
+            </div>
+
+            <div class="d-grid gap-2 col-md-6 mx-auto">
+              <button type="submit" class="btn btn-gvp-primary btn-lg"><i class="bi bi-send-fill me-2"></i> Submit Complaint Ticket</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal fade" id="complaintSuccessModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+        <div class="text-success display-1 mb-3"><i class="bi bi-check-circle-fill"></i></div>
+        <h4 class="fw-bold text-dark">Complaint Ticket Created!</h4>
+        <p class="text-muted mb-3">Your complaint has been successfully registered with Gujarat Vidyapith Estate Cell.</p>
+        <div class="p-3 bg-light border rounded mb-3">
+          <small class="text-muted d-block">YOUR COMPLAINT TICKET ID</small>
+          <strong id="newComplaintIdDisplay" class="fs-3 text-primary">GVP-2026-101</strong>
+        </div>
+        <p class="small text-muted">A confirmation email has been logged. You can track status anytime.</p>
+        <div class="d-flex justify-content-center gap-2">
+          <a href="/track.html" class="btn btn-gvp-primary"><i class="bi bi-crosshair me-1"></i> Track Complaint</a>
+          <a href="/" class="btn btn-outline-secondary">Return Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container text-center small text-light-50">
+      © 2026 Gujarat Vidyapith. Mari-Fariyaad Portal.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
+  <script src="/static/js/virtual-keyboard.js" th:src="@{/js/virtual-keyboard.js}"></script>
+</body>
+</html>
