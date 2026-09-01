@@ -27,6 +27,7 @@ CREATE DATABASE marifariyaad_db
 -- ---------------------------------------------------------------
 -- users
 -- ---------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS users (
     id              BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     full_name       VARCHAR(150)  NOT NULL,
