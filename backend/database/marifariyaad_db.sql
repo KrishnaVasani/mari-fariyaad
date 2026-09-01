@@ -22,11 +22,7 @@ CREATE DATABASE marifariyaad_db
   LC_CTYPE = 'en_US.UTF-8'
   TEMPLATE = template0;
 
--- \c marifariyaad_db
 
--- ---------------------------------------------------------------
--- users
--- ---------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS users (
     id              BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
